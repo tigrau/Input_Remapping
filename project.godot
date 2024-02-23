@@ -11,5 +11,7 @@ config_version=5
 [application]
 
 config/name="Input_Remapping"
+run/main_scene="res://world.tscn"
+config/custom_user_dir_name="./"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
