@@ -26,9 +26,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	text = "%s" % OS.get_keycode_string(event.keycode)
 	set_process_unhandled_key_input(false)
 	
-	var file = FileAccess.open(keymap_path, FileAccess.READ)
-	keymaps = file.get_var(true) as Dictionary
-	file.close()
+	if FileAccess.file_exists(keymap_path):
+		var file = FileAccess.open(keymap_path, FileAccess.READ)
+		keymaps = file.get_var(true) as Dictionary
+		file.close()
 	
 	keymaps[action] = event
 	save_data()
